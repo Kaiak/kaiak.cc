@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HZ5EQX6F5"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-7HZ5EQX6F5');
+        </script>
+        <meta charset="UTF-8">
+        <title>Kaiak – The lightweight Nano wallet for KaiOS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background: #F4FAFF;
+                color: #000034;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                width: 1024px;
+                margin: 0 auto;
+            }
+            .section {
+                display: flex;
+                flex-direction: row;
+            }
+            .left {
+                width: 50%;
+                text-align: left;
+            }
+            .right {
+                width: 50%;
+                height: auto;
+                position: relative;
+                margin-left: 5rem;
+            }
+            .box {
+                width: 17.5rem;
+                height: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+            }
+            .overlay {
+                border-radius: 25px;
+                box-shadow: 10px 5px 5px lightgrey;
+            }
+            .stack-top {
+                width: 15rem;
+                height: 20rem;
+                z-index: 9;
+                margin-top: 3.25rem;
+                margin-left: 1.25rem;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="section">
+                <h1>Kaiak Nano Wallet</h1>
+            </div>
+            <div class="section">
+                <div class="left">
+                    <p>A Nano wallet for the KaiOS family of phones! <i>Also usable directly in the browser to the right! ;-)</i></p>
+                    <h3>Features</h3>
+                    <ul>
+                        <li>Seed encrypted securely on device</li>
+                        <li>Create wallet and receive / send Nano</li>
+                        <li>Send by QR code</li>
+                        <li>Make alias for your accounts</li>
+                        <li>Export seed</li>
+                    </ul>
+                    <h3>Supported languages</h3>
+                    <ul>
+                        <li>English</li>
+                        <li>Hindi</li>
+                        <li>Spanish</li>
+                        <li>Dutch</li>
+                    </ul>
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="https://github.com/Kaiak/kaiak-wallet">Kaiak Github</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <img src="kai.svg" class="box overlay" alt="Background for a generic KaiOS phone">
+                    <iframe class="box stack-top"
+                            id="kaiak"
+                            title="Kaiak"
+                            width="240"
+                            height="320"
+                            src="https://wallet.kaiak.cc">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
