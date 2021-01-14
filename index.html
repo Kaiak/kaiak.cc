@@ -18,7 +18,7 @@
             body {
                 font-family: 'Open Sans', sans-serif;
                 background: #F4FAFF;
-                color: #000034;
+                color: black;
             }
             .content {
                 display: flex;
@@ -37,8 +37,12 @@
             .right {
                 width: 50%;
                 height: auto;
+
+            }
+            .mobile-layout {
+                width: 50%;
+                margin: 0 auto;
                 position: relative;
-                margin-left: 5rem;
             }
             .box {
                 width: 17.5rem;
@@ -60,6 +64,31 @@
                 margin-left: 1.25rem;
                 border: none;
             }
+            .small {
+                display: none;
+            }
+            .selling {
+                font-weight: bold;
+            }
+            @media only screen and (max-width: 37.5em) {
+
+            }
+            @media only screen and (max-width: 56.25em) {
+                .section {
+                    flex-direction: column;
+                }
+                .mobile-layout {
+                    width: 100%;
+                    margin-left: 1rem;
+                    position: relative;
+                }
+                .regular {
+                    display: none;
+                }
+                .small {
+                    display: initial;
+                }
+            }
         </style>
     </head>
     <body>
@@ -69,7 +98,7 @@
             </div>
             <div class="section">
                 <div class="left">
-                    <p>A Nano wallet for the KaiOS family of phones! <i>Also usable directly in the browser to the right! ;-)</i></p>
+                    <p>A Nano wallet for the KaiOS family of phones! <span class="selling">Fully functioning in the browser <span class="regular">to the right</span><span class="small">below</span>!</span> 😉</p>
                     <h3>Features</h3>
                     <ul>
                         <li>Seed encrypted securely on device</li>
@@ -91,14 +120,16 @@
                     </ul>
                 </div>
                 <div class="right">
-                    <img src="kai.svg" class="box overlay" alt="Background for a generic KaiOS phone">
-                    <iframe class="box stack-top"
-                            id="kaiak"
-                            title="Kaiak"
-                            width="240"
-                            height="320"
-                            src="https://wallet.kaiak.cc">
-                    </iframe>
+                    <div class="mobile-layout">
+                        <img src="kai.svg" class="box overlay" alt="Background for a generic KaiOS phone">
+                        <iframe class="box stack-top"
+                                id="kaiak"
+                                title="Kaiak"
+                                width="240"
+                                height="320"
+                                src="https://wallet.kaiak.cc">
+                        </iframe>
+                    </div>
                 </div>
             </div>
 
