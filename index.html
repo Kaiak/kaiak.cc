@@ -79,7 +79,11 @@
                 width: 12.5rem;
             }
             .language-control > li:hover {
+                cursor: pointer;
                 text-decoration: underline;
+            }
+            .active {
+                font-weight: bold;
             }
             @media only screen and (max-width: 37.5em) {
 
@@ -106,10 +110,20 @@
             }
         </style>
         <script>
-            document.domain = 'kaiak.cc';
-            function setLanguage(code) {
+            function setLanguage(element) {
+                const children = document.getElementsByClassName('language-control')[0].children
+                for (let i = 0; i < children.length; i++) {
+                    const child = children[i]
+                    child.classList.remove('active')
+                }
+                const code = element.id;
                 const iframe = document.getElementById("kaiak");
-                iframe.contentWindow.navigator.mozL10n.language.code = code;
+                try {
+                    iframe.contentWindow.navigator.mozL10n.language.code = code;
+                } catch (e) {
+                    console.log(e)
+                }
+                element.classList.add('active')
             }
         </script>
     </head>
@@ -131,12 +145,12 @@
                     </ul>
                     <h3>🌐 Supported languages</h3>
                     <ul class="language-control">
-                        <li onclick="setLanguage('en-US')">English</li>
-                        <li onclick="setLanguage('hi')">Hindi</li>
-                        <li onclick="setLanguage('es-US')">Colombian Spanish</li>
-                        <li onclick="setLanguage('nl')">Dutch</li>
-                        <li onclick="setLanguage('fa')">Farsi</li>
-                        <li onclick="setLanguage('pt-BR')">Brazilian Portuguese</li>
+                        <li id="en-US" class="active" onclick="setLanguage(this)">English</li>
+                        <li id="hi" onclick="setLanguage(this)">Hindi</li>
+                        <li id="es-US" onclick="setLanguage(this)">Colombian Spanish</li>
+                        <li id="nl" onclick="setLanguage(this)">Dutch</li>
+                        <li id="fa" onclick="setLanguage(this)">Farsi</li>
+                        <li id="pt-BR" onclick="setLanguage(this)">Brazilian Portuguese</li>
                     </ul>
                     <h3>🔗 Links</h3>
                     <ul>
