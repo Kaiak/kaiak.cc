@@ -28,7 +28,7 @@
             .content {
                 display: flex;
                 flex-direction: column;
-                width: 1024px;
+                max-width: 1024px;
                 margin: 0 auto;
             }
             .section {
@@ -78,6 +78,9 @@
             .donation-img {
                 width: 12.5rem;
             }
+            .language-control > li:hover {
+                text-decoration: underline;
+            }
             @media only screen and (max-width: 37.5em) {
 
             }
@@ -86,9 +89,7 @@
                     flex-direction: column;
                 }
                 .mobile-layout {
-                    width: 100%;
-                    margin-left: 1rem;
-                    position: relative;
+                    margin-top: 2rem;
                 }
                 .regular {
                     display: none;
@@ -96,8 +97,20 @@
                 .small {
                     display: initial;
                 }
+                .left {
+                    width: 100%;
+                }
+                .right {
+                    width: 100%;
+                }
             }
         </style>
+        <script>
+            function setLanguage(code) {
+                const iframe = document.getElementById("kaiak");
+                iframe.contentWindow.navigator.mozL10n.language.code = code;
+            }
+        </script>
     </head>
     <body>
         <div class="content">
@@ -116,13 +129,13 @@
                         <li>Export seed</li>
                     </ul>
                     <h3>🌐 Supported languages</h3>
-                    <ul>
-                        <li>English</li>
-                        <li>Hindi</li>
-                        <li>Colombian Spanish</li>
-                        <li>Dutch</li>
-                        <li>Farsi</li>
-                        <li>Brazilian Portuguese</li>
+                    <ul class="language-control">
+                        <li onclick="setLanguage('en-US')">English</li>
+                        <li onclick="setLanguage('hi')">Hindi</li>
+                        <li onclick="setLanguage('es-CO')">Colombian Spanish</li>
+                        <li onclick="setLanguage('nl')">Dutch</li>
+                        <li onclick="setLanguage('fa')">Farsi</li>
+                        <li onclick="setLanguage('pt-BR')">Brazilian Portuguese</li>
                     </ul>
                     <h3>🔗 Links</h3>
                     <ul>
