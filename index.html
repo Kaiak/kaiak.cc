@@ -106,6 +106,7 @@
             }
         </style>
         <script>
+            document.domain = 'kaiak.cc';
             function setLanguage(code) {
                 const iframe = document.getElementById("kaiak");
                 iframe.contentWindow.navigator.mozL10n.language.code = code;
@@ -132,7 +133,7 @@
                     <ul class="language-control">
                         <li onclick="setLanguage('en-US')">English</li>
                         <li onclick="setLanguage('hi')">Hindi</li>
-                        <li onclick="setLanguage('es-CO')">Colombian Spanish</li>
+                        <li onclick="setLanguage('es-US')">Colombian Spanish</li>
                         <li onclick="setLanguage('nl')">Dutch</li>
                         <li onclick="setLanguage('fa')">Farsi</li>
                         <li onclick="setLanguage('pt-BR')">Brazilian Portuguese</li>
