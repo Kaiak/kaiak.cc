@@ -131,7 +131,7 @@
             function wireUpButtons() {
                 const iframe = document.getElementById("kaiak")
                 console.log(iframe)
-                if(iframe) {
+                if(iframe && iframe.contentDocument) {
                     iframe.contentDocument.addEventListener('focus', event => {
                         event.stopPropagation();
                     })
