@@ -18,6 +18,14 @@
         <meta property="og:image" content="https://kaiak.cc/kaiak_logo_wide_small.png">
         <meta property="og:url" content="https://kaiak.cc">
         <meta name="twitter:card" content="Kaiak logo">
+        <meta name="defaultLanguage" content="en-US" />
+        <meta name="availableLanguages" content="en-US, es-US, nl, hi, fa, pt-BR" />
+        <link rel="localization" href="/locales/{locale}.properties" />
+        <link rel='stylesheet' href='/css/normalize.css'>
+        <link rel='stylesheet' href='/bundle.css'>
+
+        <script defer src='/bundle.js'></script>
+
         <style>
             @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
             body {
@@ -65,7 +73,7 @@
                 width: 15rem;
                 height: 20rem;
                 z-index: 9;
-                margin-top: 3.3rem;
+                margin-top: 3.65rem;
                 margin-left: 1.25rem;
                 border: none;
             }
@@ -85,12 +93,18 @@
             .active {
                 font-weight: bold;
             }
-            @media only screen and (max-width: 37.5em) {
-
+            #app {
+            }
+            main {
+                height: 100%;
+            }
+            main > div.kui-app {
+                height: 100% !important;
             }
             @media only screen and (max-width: 56.25em) {
                 .section {
                     flex-direction: column;
+                    padding-left: 1rem;
                 }
                 .mobile-layout {
                     margin-top: 2rem;
@@ -110,20 +124,28 @@
             }
         </style>
         <script>
-            document.domain = 'kaiak.cc';
+            function setButton(svgElement, keyType) {
+                const svg = document.getElementById('svg').contentDocument;
+                let button = svg.getElementById(svgElement);
+                button.addEventListener('click', ev => {
+                    document.dispatchEvent(new KeyboardEvent('keydown', {key: keyType}));
+                })
+            }
+
+            function wireUpButtons() {
+                setButton('Backspace', 'Backspace')
+                setButton('SoftLeft', 'SoftLeft')
+                setButton('SoftRight', 'SoftRight')
+                setButton('Enter', 'Enter')
+            }
+
             function setLanguage(element) {
                 const children = document.getElementsByClassName('language-control')[0].children
                 for (let i = 0; i < children.length; i++) {
                     const child = children[i]
                     child.classList.remove('active')
                 }
-                const code = element.id;
-                const iframe = document.getElementById("kaiak");
-                try {
-                    iframe.contentWindow.navigator.mozL10n.language.code = code;
-                } catch (e) {
-                    console.log(e)
-                }
+                navigator.mozL10n.language.code = element.id;
                 element.classList.add('active')
             }
         </script>
@@ -166,18 +188,11 @@
                 </div>
                 <div class="right">
                     <div class="mobile-layout">
-                        <img src="kai.svg" class="box overlay" alt="Background for a generic KaiOS phone">
-                        <iframe class="box stack-top"
-                                id="kaiak"
-                                title="Kaiak"
-                                width="240"
-                                height="320"
-                                src="https://wallet.kaiak.cc">
-                        </iframe>
+                        <object id="svg" type="image/svg+xml" data="kaiak_device.svg" class="box overlay" onload="wireUpButtons()"></object>
+                        <div id="app" class="box stack-top"></div>
                     </div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>
