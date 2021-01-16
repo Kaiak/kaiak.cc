@@ -130,6 +130,8 @@
             }
 
             function wireUpButtons() {
+                const domain = document.domain;
+                document.domain = 'kaiak.cc';
                 const iframe = document.getElementById("kaiak")
                 console.log(iframe)
                 if(iframe && iframe.contentDocument) {
@@ -144,6 +146,7 @@
                 setButton('SoftLeft', 'SoftLeft')
                 setButton('SoftRight', 'SoftRight')
                 setButton('Enter', 'Enter')
+                document.domain = domain;
             }
 
             function setLanguage(element) {
