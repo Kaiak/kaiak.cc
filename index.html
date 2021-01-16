@@ -110,11 +110,8 @@
             }
         </style>
         <script>
-            try {
-                document.domain = 'https://kaiak.cc';
-            } catch (e) {
-                console.log('no need to set locally')
-            }
+            console.log(document.domain)
+
 
             function setButton(svgElement, keyType) {
                 const svg = document.getElementById('svg').contentDocument;
