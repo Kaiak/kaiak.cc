@@ -65,7 +65,7 @@
                 width: 15rem;
                 height: 20rem;
                 z-index: 9;
-                margin-top: 3.25rem;
+                margin-top: 3.7rem;
                 margin-left: 1.25rem;
                 border: none;
             }
@@ -110,7 +110,41 @@
             }
         </style>
         <script>
-            document.domain = 'kaiak.cc';
+
+            try {
+                document.domain = 'kaiak.cc';
+            } catch (e) {
+                console.log('no need to set locally')
+            }
+
+            function setButton(svgElement, keyType) {
+                const svg = document.getElementById('svg').contentDocument;
+                let button = svg.getElementById(svgElement);
+                button.addEventListener('click', ev => {
+                    const iframe = document.getElementById("kaiak");
+                    iframe.contentDocument.dispatchEvent(
+                        new KeyboardEvent('keydown', {key: keyType})
+                    );
+                })
+            }
+
+            function wireUpButtons() {
+                const iframe = document.getElementById("kaiak")
+                if(iframe) {
+                    iframe.contentDocument.addEventListener('focus', event => {
+                        event.stopPropagation();
+                    })
+                    iframe.contentDocument.addEventListener('blur', event => {
+                        event.stopPropagation();
+                    })
+                }
+
+                setButton('Backspace', 'Backspace')
+                setButton('SoftLeft', 'SoftLeft')
+                setButton('SoftRight', 'SoftRight')
+                setButton('Enter', 'Enter')
+            }
+
             function setLanguage(element) {
                 const children = document.getElementsByClassName('language-control')[0].children
                 for (let i = 0; i < children.length; i++) {
@@ -166,7 +200,7 @@
                 </div>
                 <div class="right">
                     <div class="mobile-layout">
-                        <img src="kai.svg" class="box overlay" alt="Background for a generic KaiOS phone">
+                        <object id="svg" type="image/svg+xml" data="kaiak_device.svg" class="box overlay" onload="wireUpButtons()" />
                         <iframe class="box stack-top"
                                 id="kaiak"
                                 title="Kaiak"
