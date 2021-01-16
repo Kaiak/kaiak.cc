@@ -122,13 +122,10 @@
                 const svg = document.getElementById('svg').contentDocument;
                 let button = svg.getElementById(svgElement);
                 button.addEventListener('click', ev => {
-                    const domain = document.domain;
-                    document.domain = 'kaiak.cc';
                     const iframe = document.getElementById("kaiak");
                     iframe.contentDocument.dispatchEvent(
                         new KeyboardEvent('keydown', {key: keyType})
                     );
-                    document.domain = domain;
                 })
             }
 
