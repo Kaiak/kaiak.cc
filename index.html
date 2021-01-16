@@ -160,6 +160,10 @@
                 }
                 element.classList.add('active')
             }
+
+            window.addEventListener('load', function () {
+                wireUpButtons();
+            })
         </script>
     </head>
     <body>
@@ -200,7 +204,7 @@
                 </div>
                 <div class="right">
                     <div class="mobile-layout">
-                        <object id="svg" type="image/svg+xml" data="kaiak_device.svg" class="box overlay" onload="wireUpButtons()"></object>
+                        <object id="svg" type="image/svg+xml" data="kaiak_device.svg" class="box overlay"></object>
                         <iframe class="box stack-top"
                                 id="kaiak"
                                 title="Kaiak"
