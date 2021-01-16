@@ -38,8 +38,8 @@
 	.st32{fill:#FFFFFF;}
 	.st33{display:none;}
 	.button-hover:hover {
-		fill: #000000;
-		fill-opacity:20%;
+		fill: #999999;
+		fill-opacity:50%;
 	}
 </style>
 <filter  filterUnits="userSpaceOnUse" height="13" id="Mic" width="78" x="241" y="48.98">
@@ -51,32 +51,43 @@
 </filter>
 <g id="keys">
 	<g id="callButtons">
-		<linearGradient id="call_1_" gradientUnits="userSpaceOnUse" x1="118.8815" y1="922.6024" x2="214.7273" y2="1240.2328">
-			<stop  offset="0" style="stop-color:#FAF8F9"/>
-			<stop  offset="1" style="stop-color:#E3E3E3"/>
-		</linearGradient>
-		<rect id="call" x="0.5" y="939.7" class="st0" width="279.5" height="107.5"/>
-		<linearGradient id="reject_1_" gradientUnits="userSpaceOnUse" x1="398.6147" y1="922.5466" x2="494.5359" y2="1240.4269">
-			<stop  offset="0" style="stop-color:#FAF8F9"/>
-			<stop  offset="1" style="stop-color:#E3E3E3"/>
-		</linearGradient>
-		<rect id="reject" x="280" y="939.7" class="st1 button-hover" width="280" height="107.5"/>
+		<g id="call">
+			<linearGradient id="call_1_" gradientUnits="userSpaceOnUse" x1="118.8815" y1="922.6024" x2="214.7273" y2="1240.2328">
+				<stop  offset="0" style="stop-color:#FAF8F9"/>
+				<stop  offset="1" style="stop-color:#E3E3E3"/>
+			</linearGradient>
+			<rect id="call" x="0.5" y="939.7" class="st0" width="279.5" height="107.5"/>
+			<path transform="translate(56 838)" id="Rectangle_8" class="st30" d="M82.7,150.4c0,8.3-6.7,15-14,14h-50c-9.3,1-16-5.7-16-14"/>
+		</g>
+
+		<g id="Backspace" class="st1 button-hover">
+			<linearGradient id="reject_1_" gradientUnits="userSpaceOnUse" x1="398.6147" y1="922.5466" x2="494.5359" y2="1240.4269">
+				<stop  offset="0" style="stop-color:#FAF8F9"/>
+				<stop  offset="1" style="stop-color:#E3E3E3"/>
+			</linearGradient>
+			<rect id="reject" x="280" y="939.7" width="280" height="107.5"/>
+			<path transform="translate(56 838)" id="Rectangle_8-2" class="st31" d="M439,150c0,8.3-6.7,15-14,14h-50c-9.3,1-16-5.7-16-14"/>
+		</g>
 	</g>
 	<g id="softKeys">
-		<g id="SoftLeft" class="button-hover">
+		<g id="SoftLeft" class="st2 button-hover">
 			<linearGradient id="softLeft_1_" gradientUnits="userSpaceOnUse" x1="114.1828" y1="778.4766" x2="231.1039" y2="1165.9498">
 				<stop  offset="0" style="stop-color:#FAF8F9"/>
 				<stop  offset="1" style="stop-color:#E3E3E3"/>
 			</linearGradient>
-			<rect id="softLeft_2_" x="0.5" y="790" class="st2" width="279.5" height="149.6"/>
+			<rect id="softLeft_2_" x="0.5" y="790" width="279.5" height="149.6"/>
 			<path transform="translate(56 838)" id="Rectangle_9" class="st29" d="M2.8,28h80.3c2.1,0,3.8,1.6,3.8,3.5l0,0c0,1.9-1.7,3.5-3.8,3.5H2.8C0.7,35-1,33.4-1,31.5
 				l0,0C-1,29.6,0.7,28,2.8,28z"/>
 		</g>
-		<linearGradient id="softRight_1_" gradientUnits="userSpaceOnUse" x1="393.7978" y1="777.4984" x2="511.3246" y2="1166.979">
+		<g id="SoftRight" class="st3 button-hover">
+			<linearGradient id="softRight_1_" gradientUnits="userSpaceOnUse" x1="393.7978" y1="777.4984" x2="511.3246" y2="1166.979">
 			<stop  offset="0" style="stop-color:#FAF8F9"/>
-			<stop  offset="1" style="stop-color:#E3E3E3"/>
-		</linearGradient>
-		<rect id="softRight_2_" x="280" y="789" class="st3" width="280" height="150.7"/>
+				<stop  offset="1" style="stop-color:#E3E3E3"/>
+			</linearGradient>
+			<rect id="softRight_2_" x="280" y="789" width="280" height="150.7"/>
+			<path transform="translate(56 838)" id="Rectangle_9-2" class="st29" d="M358.8,29h79.4c2.1,0,3.8,1.6,3.8,3.5l0,0c0,1.9-1.7,3.5-3.8,3.5h-79.4
+				c-2.1,0-3.8-1.6-3.8-3.5l0,0C355,30.6,356.7,29,358.8,29z"/>
+		</g>
 	</g>
 	<g id="numbers">
 
@@ -141,10 +152,9 @@
 		</linearGradient>
 		<path id="_x23_" class="st15" d="M371,1370.2V1478h154.3c19.5-1.2,34.7-16,34.7-33.9v-73.9H371z"/>
 	</g>
-	<g id="middle">
+	<g id="Enter" class="button-hover">
 		<path id="bottom" class="st16" d="M199,1005.3c11.9,17.6,32,29.1,54.8,29.1h48.5c22.8,0,42.9-11.6,54.8-29.1H199z"/>
 		<path id="top" class="st16" d="M355.8,882.6c-12-17.6-32.1-29.1-54.9-29.1h-48.6c-22.8,0-43,11.6-54.9,29.1H355.8z"/>
-
 			<linearGradient id="middleKey_1_" gradientUnits="userSpaceOnUse" x1="-18.3922" y1="1041.7712" x2="-18.3922" y2="1040.7712" gradientTransform="matrix(153 0 0 -153 3092 160258.9844)">
 			<stop  offset="0" style="stop-color:#EDEDED"/>
 			<stop  offset="0.76" style="stop-color:#FBFBFB"/>
@@ -362,12 +372,6 @@
 				<path class="st24" d="M11.5,50.5h-1V40v-0.5H10H-0.5v-1H10h0.5V38V27.5h1V38v0.5H12h10.5v1H12h-0.5V40V50.5z"/>
 				<path class="st25" d="M12,51h-2V40H-1v-2h11V27h2v11h11v2H12V51z"/>
 			</g>
-		</g>
-		<g id="BUTTONS" transform="translate(56 838)">
-			<path id="Rectangle_9-2" class="st29" d="M358.8,29h79.4c2.1,0,3.8,1.6,3.8,3.5l0,0c0,1.9-1.7,3.5-3.8,3.5h-79.4
-				c-2.1,0-3.8-1.6-3.8-3.5l0,0C355,30.6,356.7,29,358.8,29z"/>
-			<path id="Rectangle_8" class="st30" d="M82.7,150.4c0,8.3-6.7,15-14,14h-50c-9.3,1-16-5.7-16-14"/>
-			<path id="Rectangle_8-2" class="st31" d="M439,150c0,8.3-6.7,15-14,14h-50c-9.3,1-16-5.7-16-14"/>
 		</g>
 		<g id="Your_screen_here" transform="translate(40 101)">
 			<rect id="Rectangle_13-2" y="15" class="st32" width="480" height="640"/>
